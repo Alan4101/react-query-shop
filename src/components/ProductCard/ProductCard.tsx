@@ -13,6 +13,8 @@ import {
   Divider
 } from "@mui/material";
 
+import defaultProductImage from '../../assets/emptyProduct.jpg';
+
 interface IProductCard {
   id: number;
   title: string;
@@ -45,14 +47,14 @@ export function ProductCard({
     await deleteProduct.mutateAsync();
     await refetchProducts();
   }
-
+console.log(images)
   return (
     <Card>
       <CardActionArea onClick={clickHandler}>
         <CardMedia
           component="img"
           height="250"
-          image={images ? images[0] : ""}
+          image={(images && images.length!==0) ? images[0] :  defaultProductImage}
           alt={title}
           sx={{ objectFit: "contain", p: 1 }}
         />

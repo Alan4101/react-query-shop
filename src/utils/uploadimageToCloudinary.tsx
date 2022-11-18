@@ -26,7 +26,7 @@ const getFileFromURLObject = async (
 
 export const checkUploadedImage = (images: TFileImage[]) => {
   if (images.length === 0) return [];
-  //'https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg'
+  
   return images.map(async (image) => {
     if (image.type) {
       return await getFileFromURLObject(image.url, image.name, image.type).then(

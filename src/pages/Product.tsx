@@ -15,9 +15,12 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 
+import defaultProductImage from '../assets/emptyProduct.jpg';
+
 function Product() {
   const { id } = useParams();
 
+  
   const { isLoading, product, refetchProduct } = useProduct(id);
 
   const [currentImg, setCurrentImg] = useState(0);
@@ -66,7 +69,7 @@ function Product() {
                 // maxWidth: { xs: 350, md: 750 }
               }}
               alt={product?.title}
-              src={product?.images[currentImg]}
+              src={product?.images[currentImg] || defaultProductImage}
             />
             <Grid
               item
