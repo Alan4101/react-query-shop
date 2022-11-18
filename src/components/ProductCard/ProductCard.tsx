@@ -47,7 +47,6 @@ export function ProductCard({
     await deleteProduct.mutateAsync();
     await refetchProducts();
   }
-console.log(images)
   return (
     <Card>
       <CardActionArea onClick={clickHandler}>
